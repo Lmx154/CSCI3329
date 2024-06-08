@@ -1,0 +1,5 @@
+name = input("What is your name? ")
+print("Hi", name)
+team = input("What is your favorite sports team? ")
+ask = input("Do you think the " + team + " will win in the league? ")
+print("Thank you!")
