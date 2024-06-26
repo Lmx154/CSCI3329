@@ -23,5 +23,3 @@ SELECT * FROM cars;
 
 DELETE FROM cars;
 DROP DATABASE IF EXISTS carmax;
-
-
