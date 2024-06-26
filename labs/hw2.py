@@ -22,19 +22,20 @@ def display_inventory():
     # create an extra column that will show reserved
     # don't show reserved cars in inventory.
 
-    while True:
-        main_menu()
-        ch = input("Please input your choice")
-        if ch == "3":
-            break
-        elif ch == "1":
-            if True:
-                user_type = 'c'
-                if user_type == 'c':
-                    while True:
-                        customer_menu()
-                        ch = input("Please input your choice: ")
-                        if ch == '6':
-                            break
-                        elif ch == '1':
-                            display_inventory()
+
+while True:
+    main_menu()
+    ch = input("Please input your choice: ")
+    if ch == "3":
+        break
+    elif ch == "1":
+        if True:
+            user_type = 'c'
+            if user_type == 'c':
+                while True:
+                    customer_menu()
+                    ch = input("Please input your choice: ")
+                    if ch == '6':
+                        break
+                    elif ch == '1':
+                        display_inventory()
