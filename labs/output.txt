@@ -1,6 +1,7 @@
 1
 1
 0
+<<<<<<< Updated upstream
 1
 1
 1
@@ -17,4 +18,6 @@
 0
 0
 0
+=======
+>>>>>>> Stashed changes
 0
