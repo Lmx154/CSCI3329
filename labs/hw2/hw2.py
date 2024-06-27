@@ -142,6 +142,7 @@ def employee_menu():
             display_inventory(only_available=False, show_is_available=True)
 
         elif choice == '2':
+            display_inventory(only_available=False, show_is_available=True)
             vin = input("Enter VIN: ")
             car_type = input("Enter Type: ")
             brand = input("Enter Brand: ")
@@ -161,6 +162,7 @@ def employee_menu():
             print("Car added successfully.")
 
         elif choice == '3':
+            display_inventory(only_available=False, show_is_available=True)
             vin = input("Enter VIN of the car to delete: ")
             cursor = db.cursor()
             cursor.execute("DELETE FROM cars WHERE vin = %s", (vin,))
@@ -168,6 +170,7 @@ def employee_menu():
             print("Car deleted successfully.")
 
         elif choice == '4':
+            display_inventory(only_available=False, show_is_available=True)
             vin = input("Enter VIN of the car to update: ")
             cursor = db.cursor()
             cursor.execute("SELECT * FROM cars WHERE vin = %s", (vin,))
@@ -178,7 +181,7 @@ def employee_menu():
 
             while True:
                 print("Update Menu \n1. Update Brand \n2. Update Model \n3. Update Year \n4. Update Mileage ")
-                print("5. Update Price \n6. Update Color \n7. Update Feature \n8. Exit Update Menu")
+                print("5. Update Price \n6. Update Color \n7. Update Feature \n8. Update Availability \n9. Exit this menu.")
                 update_choice = input("Please input your choice: ")
 
                 if update_choice == '1':
@@ -217,6 +220,10 @@ def employee_menu():
                     db.commit()
                     print("Feature updated successfully.")
                 elif update_choice == '8':
+                    new_value = input(f"Enter new availability (1 = available, 0 = unavailable) (Current: {car[9]}): ")
+                    cursor.execute("UPDATE cars SET is_available = new_value WHERE vin = %s", (new_value, vin))
+                    db.commit()
+                elif update_choice == '9':
                     break
                 else:
                     print("Invalid choice, please try again.")
