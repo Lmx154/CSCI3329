@@ -1,20 +1,14 @@
 CREATE DATABASE carmax;
-CREATE DATABASE employees;
-CREATE DATABASE customers;
 SHOW DATABASES;
 USE carmax;
-USE employees;
-USE customers;
-
 CREATE TABLE carmax_customers(
 userid VARCHAR(20),
 passwd VARCHAR(20),
 fname VARCHAR(20),
 lname VARCHAR(20),
 email VARCHAR(30),
-cart 
+PRIMARY KEY (userid) -- key to connect car with customer in cart
 );
-
 CREATE TABLE carmax_employees(
 userid VARCHAR(20),
 passwd VARCHAR(20),
@@ -22,7 +16,6 @@ fname VARCHAR(20),
 lname VARCHAR(20),
 email VARCHAR(30)
 );
-
 CREATE TABLE cars (
     vin VARCHAR(20),
     type VARCHAR(10),
@@ -33,7 +26,15 @@ CREATE TABLE cars (
     price INT,
     color VARCHAR(1),
     feature VARCHAR(20),
-    is_available TINYINT(1)
+    is_available TINYINT(1),
+    PRIMARY KEY (vin) -- key to connect car with customer in cart
+);
+CREATE TABLE customer_cart (
+    customer_id VARCHAR(20),
+    vin VARCHAR(20),
+    PRIMARY KEY (customer_id, vin),
+    FOREIGN KEY (customer_id) REFERENCES carmax_customers(userid),
+    FOREIGN KEY (vin) REFERENCES cars(vin)
 );
 INSERT INTO cars VALUES ('CD555SA72', 'Sedan', 'Toyota', 'Camry', 2010, 11000, 7000, 'S', ' ', 1);
 INSERT INTO cars VALUES ('AB234KL34', 'Sedan', 'Honda', 'Civic', 2009, 15000, 4000, 'R', 'Hybrid', 0);
@@ -41,9 +42,14 @@ INSERT INTO cars VALUES ('XX55JKA31', 'Minivan', 'Honda', 'Odyssey', 2018, 500, 
 INSERT INTO cars VALUES ('FF2HHKL94', 'Sedan', 'BMW', '535i', 2011, 12000, 9000, 'W', ' ', 1);
 INSERT INTO cars VALUES ('4TX8875VD', 'Truck', 'RAM', '2500', 2023, 2000, 10000, 'R', 'Off Road', 0);
 
-SELECT * FROM cars;
+INSERT INTO carmax_customers VALUES ('user1', 'pass1', 'John', 'Doe', 'john.doe@example.com');
+INSERT INTO customer_cart VALUES ('user1', 'CD555A72');
+
+SHOW tables;
+SELECT * FROM carmax_customers;
 
 DELETE FROM cars;
 DROP DATABASE IF EXISTS carmax;
+DROP TABLE customer_cart;
 
 
