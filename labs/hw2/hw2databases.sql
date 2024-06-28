@@ -14,7 +14,8 @@ userid VARCHAR(20),
 passwd VARCHAR(20),
 fname VARCHAR(20),
 lname VARCHAR(20),
-email VARCHAR(30)
+email VARCHAR(30),
+position VARCHAR(30)
 );
 CREATE TABLE cars (
     vin VARCHAR(20),
@@ -42,14 +43,10 @@ INSERT INTO cars VALUES ('XX55JKA31', 'Minivan', 'Honda', 'Odyssey', 2018, 500, 
 INSERT INTO cars VALUES ('FF2HHKL94', 'Sedan', 'BMW', '535i', 2011, 12000, 9000, 'W', ' ', 1);
 INSERT INTO cars VALUES ('4TX8875VD', 'Truck', 'RAM', '2500', 2023, 2000, 10000, 'R', 'Off Road', 0);
 
-INSERT INTO carmax_customers VALUES ('user1', 'pass1', 'John', 'Doe', 'john.doe@example.com');
-INSERT INTO customer_cart VALUES ('user1', 'CD555A72');
-
 SHOW tables;
-SELECT * FROM carmax_customers;
+SELECT * FROM carmax_employees; -- view table data 
+DROP DATABASE IF EXISTS carmax; -- delete database
+DROP TABLE carmax_customers, customer_cart; -- delete table
 
-DELETE FROM cars;
-DROP DATABASE IF EXISTS carmax;
-DROP TABLE customer_cart;
 
 
