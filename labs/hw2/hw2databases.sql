@@ -28,6 +28,7 @@ CREATE TABLE cars (
     color VARCHAR(1),
     feature VARCHAR(20),
     is_available TINYINT(1),
+    sort_order INT,
     PRIMARY KEY (vin) -- key to connect car with customer in cart
 );
 CREATE TABLE customer_cart (
@@ -47,6 +48,8 @@ SHOW tables;
 SELECT * FROM carmax_employees; -- view table data 
 DROP DATABASE IF EXISTS carmax; -- delete database
 DROP TABLE carmax_customers, customer_cart; -- delete table
+ALTER TABLE cars ADD COLUMN sort_order INT;
+
 
 
 
