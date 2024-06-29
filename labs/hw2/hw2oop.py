@@ -1,6 +1,7 @@
 import mysql.connector as mc
 
 
+# CSCI3329 OOP in python homework 2 with Dr. Kim
 # Database class to manage the database connection and operations
 class Database:
     def __init__(self):
@@ -40,19 +41,15 @@ class User:
 
         # Display inventory
         if show_is_available:
-            print(
-                f"{'VIN':<10} {'Type':<10} {'Brand':<10} {'Model':<10} {'Year':<5} {'Mileage':<8} {'Price':<7} {'Color':<7} {'Feature':<10} {'Availability':<12}")
+            print(f"{'VIN':<10} {'Type':<10} {'Brand':<10} {'Model':<10} {'Year':<5} {'Mileage':<8} {'Price':<7} {'Color':<7} {'Feature':<10} {'Availability':<12}")
         else:
-            print(
-                f"{'VIN':<10} {'Type':<10} {'Brand':<10} {'Model':<10} {'Year':<5} {'Mileage':<8} {'Price':<7} {'Color':<7} {'Feature':<10}")
+            print( f"{'VIN':<10} {'Type':<10} {'Brand':<10} {'Model':<10} {'Year':<5} {'Mileage':<8} {'Price':<7} {'Color':<7} {'Feature':<10}")
 
         for row in rows:
             if show_is_available:
-                print(
-                    f"{row[0]:<10} {row[1]:<10} {row[2]:<10} {row[3]:<10} {row[4]:<5} {row[5]:<8} {row[6]:<7} {row[7]:<7} {row[8]:<10} {row[9]:<12}")
+                print(f"{row[0]:<10} {row[1]:<10} {row[2]:<10} {row[3]:<10} {row[4]:<5} {row[5]:<8} {row[6]:<7} {row[7]:<7} {row[8]:<10} {row[9]:<12}")
             else:
-                print(
-                    f"{row[0]:<10} {row[1]:<10} {row[2]:<10} {row[3]:<10} {row[4]:<5} {row[5]:<8} {row[6]:<7} {row[7]:<7} {row[8]:<10}")
+                print( f"{row[0]:<10} {row[1]:<10} {row[2]:<10} {row[3]:<10} {row[4]:<5} {row[5]:<8} {row[6]:<7} {row[7]:<7} {row[8]:<10}")
 
     # Method to sort inventory
     def sort_inventory(self, db, sort_column):
